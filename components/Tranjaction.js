@@ -1,4 +1,4 @@
-export function transaction(item , array){
+export function Transaction(item , array){
     const tr_body = document.createElement('tr')
     const id = document.createElement('td')
     const which_card = document.createElement('td')

@@ -6,6 +6,13 @@
       "first-name": "Samir",
       "last-name": "Ganiyev",
       "password": "ssss"
+    },
+    {
+      "id": "fcb9",
+      "email": "dsarifkulo021@gmail.com",
+      "first-name": "Daler",
+      "last-name": "Sharifkulov",
+      "password": "1234Daler"
     }
   ]
 }

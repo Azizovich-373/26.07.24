@@ -9,7 +9,11 @@ form.onsubmit = async (e) => {
 
     const fm = new FormData(e.target)
 
-    const user = {}
+    const user = {
+        id: crypto.randomUUID(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+    }
 
     fm.forEach((val, key) => user[key] = val)
 

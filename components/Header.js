@@ -1,4 +1,4 @@
-export function header(item) {
+export function Header(item) {
     const header = document.createElement('header')
     const header_box = document.createElement('div')
     const left = document.createElement('nav')

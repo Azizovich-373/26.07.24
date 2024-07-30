@@ -13,17 +13,23 @@ form.onsubmit = async (e) => {
 
     fm.forEach((val, key) => user[key] = val)
 
-    const users = await apiCall.getData('/users?email=' + user.email)
+    const {data} = await apiCall.getData('/users?email=' + user.email)
 
-    if(users.data.length <= 0) {
+    if(data.length <= 0) {
         alert('User not registered!')
         return
     }
 
-    if(users.data[0].password !== pass_val.value) {
+    const [userFromDB] = data
+
+    if(userFromDB.password !== pass_val.value) {
         alert('Password is wrong!')
         return
     }
+
+    delete userFromDB.password
+    
+    localStorage.setItem('user', JSON.stringify(userFromDB))
     form.reset()
     location.assign('/') 
 }
