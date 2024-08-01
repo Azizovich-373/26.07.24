@@ -1,4 +1,4 @@
-export function header(item) {
+export function Header(item) {
     const header = document.createElement('header')
     const header_box = document.createElement('div')
     const left = document.createElement('nav')
@@ -33,5 +33,8 @@ export function header(item) {
     right.append(text_mail,header_img)
     header_img.append(exit_img)
     
+    header_img.onclick = () => {
+        location.assign('/pages/signin/')
+    }
     return header
 }

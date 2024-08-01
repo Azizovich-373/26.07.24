@@ -13,7 +13,9 @@
 }
 
 .registration-form,
-.sign-form {
+.sign-form ,
+.transaction-form,
+.wallet-form{
     display: flex;
     flex-direction: column;
 }
@@ -35,7 +37,8 @@
     color: #555;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
     width: 100%;
     padding: 0.5rem;
     border: 1px solid #ddd;
@@ -43,6 +46,7 @@
 }
 
 button {
+    width: 100%;
     padding: 0.75rem;
     background-color: #007bff;
     color: #fff;
@@ -54,6 +58,7 @@ button {
 
 button:hover {
     background-color: #0056b3;
+    cursor: pointer;
 }
 
 .login-link {
@@ -95,6 +100,9 @@ button:hover {
                 color: black;
                 text-decoration: none;
             }
+            .header_img:hover{
+                cursor: pointer;
+            }
         }
     }
 }
@@ -128,6 +136,37 @@ button:hover {
     .my_cards{
         margin-top: 70px;
         margin-bottom: 20px;
+        .wallets,
+        .wallets_all{
+            width: 1200px;
+            display: flex;
+            gap: 15px;
+            .card{
+                width: 282px;
+                height: 160px;
+                border-radius: 15px;
+                opacity: 0px;
+                background: linear-gradient(84.37deg, #20BF55 2.27%, #01BAEF 92.26%);
+                padding: 20px;
+                .name_card{
+                    font-family: Gilroy;
+                    font-size: 24px;
+                    font-weight: 500;
+                    line-height: 29.11px;
+                    text-align: left;
+                    color: white;
+                    margin-bottom: 70px;
+                }
+                .currently{
+                    font-family: Gilroy;
+                    font-size: 15px;
+                    font-weight: 500;
+                    line-height: 29.11px;
+                    text-align: left;
+                    color: white;
+                }
+            }
+        }
         .card_title{
             font-family: Gilroy;
             font-size: 24px;
@@ -136,33 +175,10 @@ button:hover {
             text-align: left;
             margin-bottom: 20px;
         }
-        .card{
-            width: 282px;
-            height: 160px;
-            border-radius: 15px;
-            opacity: 0px;
-            background: linear-gradient(84.37deg, #20BF55 2.27%, #01BAEF 92.26%);
-            padding: 20px;
-            .name_card{
-                font-family: Gilroy;
-                font-size: 24px;
-                font-weight: 500;
-                line-height: 29.11px;
-                text-align: left;
-                color: white;
-                margin-bottom: 70px;
-            }
-            .currently{
-                font-family: Gilroy;
-                font-size: 15px;
-                font-weight: 500;
-                line-height: 29.11px;
-                text-align: left;
-                color: white;
-            }
-        }
+        
     }
-    .transaction{
+    .transaction,
+    .transaction_all{
         .transaction_title{
             font-family: Gilroy;
             font-size: 24px;

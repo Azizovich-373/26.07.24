@@ -5,22 +5,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="stylesheet" href="/scss/style.scss">
+    <link rel="stylesheet" href="./style.scss">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
 </head>
 
 <body>
-    
     <div class="container">
-        <h2 class="welcome">Добро пожаловать, Alex Adams!</h2>
-        <p class="email_main">alexadams@google.com</p>
-        <section class="my_cards">
-            <p class="card_title">Мои карты</p>
-            <div class="wallets">
-
-            </div>
-        </section>
-        <a href="/pages/allwallets/" class="link_main">Смотреть все кошелки</a>
         <secrion class="transaction">
             <h3 class="transaction_title">Последние транзакции</h3>
             <table class="transaction_data">
@@ -36,9 +27,9 @@
                 <tbody class="place"></tbody>
             </table>
         </secrion>
-        <a href="/pages/alltransactions/" class="link_main">Смотреть все оплаты</a>
+        <button id="add_transaction" class="submit">Добавить</button>
     </div>
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="./index.js"></script>
 </body>
 
 </html>
