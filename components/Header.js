@@ -36,5 +36,14 @@ export function Header(item) {
     header_img.onclick = () => {
         location.assign('/pages/signin/')
     }
+    text_main.onclick = () => {
+        location.assign('/')
+    }
+    text_card.onclick = () => {
+        location.assign('/pages/allwallets/')
+    }
+    text_transaction.onclick = () => {
+        location.assign('/pages/alltransactions/')
+    }
     return header
 }
