@@ -19,7 +19,7 @@ form.onsubmit = async (e) => {
 
     const users = await apiCall.getData('/users?email=' + user.email)
 
-    if(users.data.length > 0) {
+    if(users.length > 0) {
         alert('User already registered!')
         return
     }

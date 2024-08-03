@@ -13,7 +13,7 @@ form.onsubmit = async (e) => {
 
     fm.forEach((val, key) => user[key] = val)
 
-    const {data} = await apiCall.getData('/users?email=' + user.email)
+    const data = await apiCall.getData('/users?email=' + user.email)
 
     if(data.length <= 0) {
         alert('User not registered!')

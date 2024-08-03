@@ -20,9 +20,8 @@ form.onsubmit = async (e) => {
 
     const res = await apiCall.postData('/wallets', wallet)
 
-    if(res.status === 201) {
-        form.reset()
-        location.assign('/')   
-    }
-    localStorage.setItem('wallet', JSON.stringify(wallet))
+
+    form.reset()
+    location.assign('/')   
+
 }

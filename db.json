@@ -33,15 +33,42 @@
       "wallet-name": "Business",
       "wallet-balance": "1000",
       "currency": "USD"
+    },
+    {
+      "id": "545fc750-ae67-4fdf-ba22-49620c866354",
+      "createdAt": "2024-08-03T05:59:44.146Z",
+      "updatedAt": "2024-08-03T05:59:44.146Z",
+      "userId": "fcb9",
+      "wallet-name": "DalerAka",
+      "wallet-balance": "100000",
+      "currency": "JPY"
+    },
+    {
+      "id": "38f92136-4cba-4107-b461-5a9b91e04404",
+      "createdAt": "2024-08-03T06:00:28.707Z",
+      "updatedAt": "2024-08-03T06:00:28.707Z",
+      "userId": "fcb9",
+      "wallet-name": "Daler teacher",
+      "wallet-balance": "100000",
+      "currency": "SUM"
     }
   ],
   "transactions": [
     {
-      "id": "d31d9287-56ab-4d8e-a704-6173b2aafe4a",
-      "createdAt": "2024-08-01T05:45:12.332Z",
-      "updatedAt": "2024-08-01T05:45:12.332Z",
-      "walletId": "0fa8a3ea-4a6f-463e-84fd-26d8c787cade",
+      "id": "46f74fb9-4dd6-47f4-aae4-4a8f2e809044",
+      "createdAt": "2024-08-03T05:32:02.875Z",
+      "updatedAt": "2024-08-03T05:32:02.875Z",
+      "userId": "11a4",
       "wallet": "Business",
+      "total": "1000",
+      "cat": "business"
+    },
+    {
+      "id": "81fdddf6-ba68-4907-b45c-053b98161506",
+      "createdAt": "2024-08-03T06:03:06.841Z",
+      "updatedAt": "2024-08-03T06:03:06.841Z",
+      "userId": "fcb9",
+      "wallet": "DalerAka",
       "total": "1000",
       "cat": "business"
     }

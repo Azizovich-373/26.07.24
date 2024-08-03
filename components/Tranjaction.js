@@ -12,15 +12,13 @@ export function Transaction(item , array){
     total.classList.add('td')
     when.classList.add('td')
 
-    id.innerHTML = '121212'
-    which_card.innerHTML = 'VISA'
-    cat.innerHTML = 'Автомобиль'
-    total.innerHTML = '414,000,000'
-    when.innerHTML = '4 дня назад'
-
+    id.innerHTML = item.id
+    which_card.innerHTML = item.wallet
+    cat.innerHTML = item.cat
+    total.innerHTML = item.total
+    when.innerHTML = item.createdAt
 
     tr_body.append(id,which_card,cat,total,when)
-
 
     return tr_body
 }

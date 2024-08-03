@@ -1,4 +1,5 @@
 export function Header(item) {
+    const local = JSON.parse(localStorage.getItem('user'))
     const header = document.createElement('header')
     const header_box = document.createElement('div')
     const left = document.createElement('nav')
@@ -9,7 +10,6 @@ export function Header(item) {
     const text_mail = document.createElement('a')
     const header_img = document.createElement('a')
     const exit_img = document.createElement('img')
-
 
     header.classList.add('header')
     header_box.classList.add('header_box')
@@ -25,7 +25,7 @@ export function Header(item) {
     text_main.innerHTML = 'Главная'
     text_card.innerHTML = 'Мои кошельки'
     text_transaction.innerHTML = 'Мои транзакции'
-    text_mail.innerHTML = 'alexadams@google.com'
+    text_mail.innerHTML = local.email
 
     header.append(header_box)
     header_box.append(left,right)
