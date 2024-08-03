@@ -3,6 +3,19 @@ import { ApiCall } from "../../lib/http.request";
 const form = document.forms.namedItem('wallet-form')
 const refId = JSON.parse(localStorage.getItem('user'))
 const apiCall = new ApiCall("http://localhost:8080")
+const bank_apiCall = new ApiCall("https://api.apilayer.com/fixer", "TGCgzIx4lrYPFz1bvQS4bX3QiLBodyDo")
+
+const select = document.querySelector('select')
+const res = await bank_apiCall.getData('/symbols')
+
+select.innerHTML = ""
+for(let key in res.symbols) {
+
+    select.innerHTML += `
+        <option value="${key}"  >${key}: ${res.symbols[key]}</option>
+    `
+}
+
 
 form.onsubmit = async (e) => {
     e.preventDefault();
@@ -18,10 +31,8 @@ form.onsubmit = async (e) => {
 
     fm.forEach((val, key) => wallet[key] = val)
 
-    const res = await apiCall.postData('/wallets', wallet)
-
+    await apiCall.postData('/wallets', wallet)
 
     form.reset()
     location.assign('/')   
-
 }

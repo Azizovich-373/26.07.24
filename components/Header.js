@@ -34,6 +34,7 @@ export function Header(item) {
     header_img.append(exit_img)
     
     header_img.onclick = () => {
+        localStorage.clear()
         location.assign('/pages/signin/')
     }
     text_main.onclick = () => {

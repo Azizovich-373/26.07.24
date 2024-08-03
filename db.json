@@ -51,6 +51,15 @@
       "wallet-name": "Daler teacher",
       "wallet-balance": "100000",
       "currency": "SUM"
+    },
+    {
+      "id": "af397104-9729-456e-ba98-4f614b269de3",
+      "createdAt": "2024-08-03T09:50:04.607Z",
+      "updatedAt": "2024-08-03T09:50:04.607Z",
+      "userId": "ec385f70-ae08-416e-ad40-4f8eaef03bd4",
+      "wallet-name": "VISA",
+      "wallet-balance": "10000",
+      "currency": "USD"
     }
   ],
   "transactions": [
