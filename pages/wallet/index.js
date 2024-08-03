@@ -16,7 +16,6 @@ for(let key in res.symbols) {
     `
 }
 
-
 form.onsubmit = async (e) => {
     e.preventDefault();
 
