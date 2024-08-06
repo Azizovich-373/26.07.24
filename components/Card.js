@@ -13,7 +13,7 @@ export function Card(item) {
 
     name_card.innerHTML = item["wallet-name"]
     currently.innerHTML = item.currency
-    total.innerHTML = item["wallet-balance"] + ' | ' + item.currency
+    total.innerHTML = item.balance + ' | ' + item.currency
     card.append(name_card, total, currently)
 
     return card
