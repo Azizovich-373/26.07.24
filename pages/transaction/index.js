@@ -9,8 +9,7 @@ const refId = JSON.parse(localStorage.getItem('user'))
 const res = await apiCall.getData('/wallets?userId=' + refId.id)
 
 function SelectWallet(item){
-    const option = document.createElement('option')
-    option.innerHTML = item["wallet-name"]
+    const option = new Option(item['wallet-name'], item.id)
 
     return option
 }
@@ -29,12 +28,14 @@ form.onsubmit = async (e) => {
     }
 
     fm.forEach((val, key) => transaction[key] = val)
-
-    const data = await apiCall.getData('/wallets?wallet-name=' + transaction.wallet)
     
-    const [fromDB] = data
-    console.log(fromDB);
-    if(transaction.total > fromDB.balance) {
+    const data = await apiCall.getData('/wallets/' + transaction.walletId)
+
+    delete data.id 
+
+    transaction.wallet = data
+
+    if(transaction.total > +data.balance || transaction.total < 0) {
         total_inp.style.border = '2px solid red'
         Toastify({
             text: 'Insufficient funds!',
@@ -52,11 +53,11 @@ form.onsubmit = async (e) => {
           }).showToast();
         return
     }
-    const total = fromDB.balance - transaction.total
-    // const balance = await apiCall.patchData('/wallets?wallet-name=' + transaction.wallet, {balance: total})
-    const res = await apiCall.postData('/transactions', transaction)
+    const total = data.balance - transaction.total
+
+    await apiCall.patchData('/wallets/' + transaction.walletId, {balance: total})
+    await apiCall.postData('/transactions', transaction)
 
     form.reset()
     location.assign('/')
-
 }

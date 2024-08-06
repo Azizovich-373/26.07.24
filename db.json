@@ -40,7 +40,7 @@
       "updatedAt": "2024-08-03T05:59:44.146Z",
       "userId": "fcb9",
       "wallet-name": "DalerAka",
-      "balance": "100000",
+      "balance": 99980,
       "currency": "JPY"
     },
     {
@@ -49,7 +49,7 @@
       "updatedAt": "2024-08-03T06:00:28.707Z",
       "userId": "fcb9",
       "wallet-name": "Daler teacher",
-      "balance": "100000",
+      "balance": 96000,
       "currency": "SUM"
     },
     {
@@ -89,6 +89,40 @@
       "wallet": "DalerAka",
       "total": "1000",
       "cat": "business"
+    },
+    {
+      "id": "d970ea21-3678-4918-bc04-6df3c98ddcb4",
+      "createdAt": "2024-08-06T08:57:16.174Z",
+      "updatedAt": "2024-08-06T08:57:16.174Z",
+      "userId": "fcb9",
+      "walletId": "545fc750-ae67-4fdf-ba22-49620c866354",
+      "total": "20",
+      "cat": "10000",
+      "wallet": {
+        "createdAt": "2024-08-03T05:59:44.146Z",
+        "updatedAt": "2024-08-03T05:59:44.146Z",
+        "userId": "fcb9",
+        "wallet-name": "DalerAka",
+        "balance": "100000",
+        "currency": "JPY"
+      }
+    },
+    {
+      "id": "f2eb9e4a-2f1e-442a-8bf8-cb06aad98b81",
+      "createdAt": "2024-08-06T08:58:09.972Z",
+      "updatedAt": "2024-08-06T08:58:09.972Z",
+      "userId": "fcb9",
+      "walletId": "38f92136-4cba-4107-b461-5a9b91e04404",
+      "total": "4000",
+      "cat": "car",
+      "wallet": {
+        "createdAt": "2024-08-03T06:00:28.707Z",
+        "updatedAt": "2024-08-03T06:00:28.707Z",
+        "userId": "fcb9",
+        "wallet-name": "Daler teacher",
+        "balance": "100000",
+        "currency": "SUM"
+      }
     }
   ]
 }
