@@ -17,8 +17,7 @@ export function Transaction(item , array){
     id.innerHTML = item.id
     which_card.innerHTML = item.wallet["wallet-name"] || "couldn't find name"
     cat.innerHTML = item.cat
-    total.innerHTML = item.total
-    
+    total.innerHTML = Number(item.total).toLocaleString('us')
     when.innerHTML = moment(item.createdAt).fromNow()
 
     tr_body.append(id,which_card,cat,total,when)

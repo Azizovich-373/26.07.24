@@ -13,8 +13,12 @@ export function Card(item) {
 
     name_card.innerHTML = item["wallet-name"]
     currently.innerHTML = item.currency
-    total.innerHTML = item.balance + ' | ' + item.currency
+    total.innerHTML = Number(item.balance).toLocaleString('us') + ' | ' + item.currency
     card.append(name_card, total, currently)
+
+    card.onclick = () => {
+        location.assign('/pages/wallet_info/?id=' + item.id)
+    }
 
     return card
 }

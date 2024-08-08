@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="./style.scss">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="/lib/police.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Информация о карте</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="user_card">Dashboard:</h1>
+        <button class="close_info"><img src="/public/x.svg" alt=""></button>
+        <section class="wallets">
+            <p>Payment Methhods</p>
+            <div class="wallets_place">
+                
+            </div>
+        </section>
+        <section class="last">
+            <div class="history">
+                <h3>Transaction History</h3>
+                <select class="history_currency" name="currency_history" id="currency_history">
+                    
+                </select>
+                <select name="time" id="time">
+                    <option value="365">За год</option>
+                    <option value="1">Январь</option>
+                    <option value="2">Февраль</option>
+                    <option value="3">Март</option>
+                    <option value="4">Апрель</option>
+                    <option value="5">Май</option>
+                    <option value="6">Июнь</option>
+                    <option value="7">Июль</option>
+                    <option value="8">Август</option>
+                    <option value="9">Сентябрь</option>
+                    <option value="10">Октябрь</option>
+                    <option value="11">Ноябрь</option>
+                    <option value="12">Декабрь</option>
+                </select>
+                <canvas id="myChart" width="400" height="200"></canvas>
+            </div>
+            <div class="conversion">
+                <h3>Currency Conversion</h3>
+                <select class="select_currency" name="conv_in" id="conv_in">
+                    
+                </select>
+                <select class="select_currency" name="conv_to" id="conv_to">
+
+                </select>
+                <input type="number" placeholder="much" name="much" required>
+                <button class="convert">Convert</button>
+            </div>
+        </section>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="module" src="./index.js"></script>
+</body>
+
+</html>
