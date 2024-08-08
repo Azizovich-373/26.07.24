@@ -6,6 +6,9 @@ const apicall = new ApiCall('http://localhost:8080')
 
 const h1 = document.querySelector('.user_card')
 const close = document.querySelector('.close_info')
+const name_card = document.querySelector('.name_card')
+const total = document.querySelector('.total')
+const currently = document.querySelector('.currently')
 const wallets_place = document.querySelector('.wallets_place')
 const select_currency = document.querySelectorAll('.select_currency')
 const history_currency = document.querySelector('.history_currency')
@@ -32,7 +35,9 @@ reload(wallet,history_currency,Select_Currency)
 //         `;
 //     }
 // }
-
+name_card.innerHTML = res["wallet-name"]
+currently.innerHTML = res.currency
+total.innerHTML = Number(res.balance).toLocaleString('us') + ' | ' + res.currency
 h1.innerHTML = `Dashboard: ${res["wallet-name"]}`
 close.onclick = () => {
     location.assign('/')
