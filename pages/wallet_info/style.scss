@@ -102,4 +102,33 @@
             }
         }
     }
+    .card_view{
+        margin: 20px auto;
+        .card{
+            width: 282px;
+            height: 160px;
+            border-radius: 15px;
+            opacity: 0px;
+            background: linear-gradient(84.37deg, #2d8fff 2.27%, #1a1cb3 92.26%);
+            padding: 20px;
+            .name_card{
+                font-family: Gilroy;
+                font-size: 24px;
+                font-weight: 500;
+                line-height: 29.11px;
+                text-align: left;
+                color: white;
+                margin-bottom: 50px;
+            }
+            .currently,
+            .total{
+                font-family: Gilroy;
+                font-size: 15px;
+                font-weight: 500;
+                line-height: 29.11px;
+                text-align: left;
+                color: white;
+            }
+        }
+    }
 }
