@@ -57,8 +57,21 @@
                 <button class="convert">Convert</button>
             </div>
         </section>
+        <section class="card_view">
+            <div class="card">
+                <p class="name_card"></p>
+                <p class="total"></p>
+                <p class="currently"></p>
+            </div>
+        </section>
     </div>
-
+    <script type="text/javascript" src="vanilla-tilt.js"></script>
+    <script type="text/javascript">
+        VanillaTilt.init(document.querySelector(".card"), {
+            max: 25,
+            speed: 400
+        });
+    </script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script type="module" src="./index.js"></script>
 </body>
