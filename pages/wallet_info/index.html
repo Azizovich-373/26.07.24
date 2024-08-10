@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <h1 class="user_card">Dashboard:</h1>
-        <button class="close_info"><img src="/public/x.svg" alt=""></button>
+        <button class="close_info"><img src="/x.svg" alt=""></button>
         <section class="wallets">
             <p>Payment Methhods</p>
             <div class="wallets_place">
@@ -53,8 +53,9 @@
                 <select class="select_currency" name="conv_to" id="conv_to">
 
                 </select>
-                <input type="number" placeholder="much" name="much" required>
+                <input id="much" type="number" placeholder="much" name="much" required>
                 <button class="convert">Convert</button>
+                <h4 id="total"></h4>
             </div>
         </section>
         <section class="card_view">

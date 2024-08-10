@@ -10,8 +10,7 @@ export function Wallet(item) {
     opened.classList.add('opened')
     img_card.classList.add('img')
 
-
-    img_card.src = '/public/card.svg'
+    img_card.src = '/card.svg'
     span.innerHTML = item["wallet-name"]
     opened.innerHTML = `created: ${moment(item.createdAt).fromNow()}`
     wallet.append(img_card, span, opened)

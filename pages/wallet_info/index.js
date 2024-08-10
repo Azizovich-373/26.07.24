@@ -2,7 +2,7 @@ import { reload } from "../../lib/utils"
 import { ApiCall } from "../../lib/http.request"
 import { Wallet } from "../../components/Info_card"
 const apicall = new ApiCall('http://localhost:8080')
-// const bank_apiCall = new ApiCall("https://api.apilayer.com/fixer", "j2pLT7yrORYlBVoSvkYpj4dXnY4GaQJj")
+// const bank_apiCall = new ApiCall('https://api.apilayer.com/fixer', "DEJeBDkqUPn3hECpmCjLY37ap86N0Xw1")
 
 const h1 = document.querySelector('.user_card')
 const close = document.querySelector('.close_info')
@@ -10,6 +10,11 @@ const name_card = document.querySelector('.name_card')
 const total = document.querySelector('.total')
 const currently = document.querySelector('.currently')
 const wallets_place = document.querySelector('.wallets_place')
+const conv_in = document.querySelector('#conv_in')
+const conv_to = document.querySelector('#conv_to')
+const much = document.querySelector('#much')
+const convert = document.querySelector('.convert')
+const total_conv = document.querySelector('#total')
 const select_currency = document.querySelectorAll('.select_currency')
 const history_currency = document.querySelector('.history_currency')
 const id = location.search.split('=').at(-1)
@@ -19,6 +24,16 @@ const wallet = await apicall.getData('/wallets?userId=' + refId.id)
 const res = await apicall.getData('/wallets/' + id)
 // const currency = await bank_apiCall.getData('/symbols')
 
+
+convert.onclick = async () => {
+    const params = {
+        from: conv_in.value,
+        to: conv_to.value,
+        amount: much.value
+    }
+    const convertation = await bank_apiCall.getData('/convert', params)
+    total_conv.innerHTML = `TOTAL: ${convertation.result} ${conv_to.value}`
+}
 reload(wallet, wallets_place, Wallet)
 function Select_Currency(item){
     const option = new Option(item.currency, item.id)
@@ -42,6 +57,20 @@ h1.innerHTML = `Dashboard: ${res["wallet-name"]}`
 close.onclick = () => {
     location.assign('/')
 }
+
+const elems = document.querySelectorAll('.wallet');
+
+if (res.id === id) {
+    elems.forEach((item, idx) => {
+
+        if (idx <= wallet.length) { 
+            item.id = wallet[idx].id;
+        }
+        const elem = document.getElementById(id);
+        elem.classList.add('active'); 
+    });
+}
+
 const ctx = document.getElementById('myChart').getContext('2d');
     const myChart = new Chart(ctx, {
         type: 'line',
