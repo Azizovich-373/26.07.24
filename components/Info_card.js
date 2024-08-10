@@ -6,6 +6,7 @@ export function Wallet(item) {
     const opened = document.createElement('p')
 
     wallet.classList.add('wallet')
+    wallet.id = item.id
     span.classList.add('span')
     opened.classList.add('opened')
     img_card.classList.add('img')
