@@ -59,17 +59,11 @@ close.onclick = () => {
 }
 
 const elems = document.querySelectorAll('.wallet');
-
-if (res.id === id) {
-    elems.forEach((item, idx) => {
-
-        if (idx <= wallet.length) { 
-            item.id = wallet[idx].id;
-        }
-        const elem = document.getElementById(id);
-        elem.classList.add('active'); 
-    });
-}
+elems.forEach(item => {
+    if(item.id === id){
+        item.classList.add('active')
+    }
+})
 
 const ctx = document.getElementById('myChart').getContext('2d');
     const myChart = new Chart(ctx, {
