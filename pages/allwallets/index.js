@@ -11,7 +11,7 @@ const card_place = document.querySelector('.wallets_all')
 
 reload([{}],body, Header)
 
-await apiCall.getData('/wallets?userId=' + refId.id)
+apiCall.getData('/wallets?userId=' + refId.id)
     .then(wallet => {
         reload(wallet,card_place, Card)
     })
