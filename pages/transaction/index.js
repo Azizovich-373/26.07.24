@@ -4,7 +4,7 @@ import { reload } from "../../lib/utils";
 const form = document.forms.namedItem('transaction-form')
 const total_inp = document.querySelector('#total')
 const select_wallet = document.querySelector('#wallet')
-const apiCall = new ApiCall("http://localhost:8080")
+const apiCall = new ApiCall(import.meta.env.VITE_BATH_URL)
 const refId = JSON.parse(localStorage.getItem('user'))
 const res = await apiCall.getData('/wallets?userId=' + refId.id)
 

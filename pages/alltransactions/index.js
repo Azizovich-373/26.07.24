@@ -4,7 +4,7 @@ import { Transaction } from "../../components/Tranjaction";
 import { ApiCall } from "../../lib/http.request";
 
 const refId = JSON.parse(localStorage.getItem('user'))
-const apiCall = new ApiCall("http://localhost:8080")
+const apiCall = new ApiCall(import.meta.env.VITE_BATH_URL)
 const add_transaction = document.querySelector('#add_transaction')
 const transaction = await apiCall.getData('/transactions?userId=' + refId.id)
 const body = document.body

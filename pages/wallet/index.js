@@ -2,8 +2,8 @@ import { ApiCall } from "../../lib/http.request";
 
 const form = document.forms.namedItem('wallet-form')
 const refId = JSON.parse(localStorage.getItem('user'))
-const apiCall = new ApiCall("http://localhost:8080")
-const bank_apiCall = new ApiCall("https://api.apilayer.com/fixer", "j2pLT7yrORYlBVoSvkYpj4dXnY4GaQJj")
+const apiCall = new ApiCall(import.meta.env.VITE_BATH_URL)
+const bank_apiCall = new ApiCall(import.meta.env.VITE_FIXER_URL, import.meta.env.VITE_API_KEY)
 
 const select = document.querySelector('select')
 const res = await bank_apiCall.getData('/symbols')

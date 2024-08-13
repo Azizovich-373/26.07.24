@@ -1,8 +1,8 @@
 import { reload } from "../../lib/utils"
 import { ApiCall } from "../../lib/http.request"
 import { Wallet } from "../../components/Info_card"
-const apicall = new ApiCall('http://localhost:8080')
-// const bank_apiCall = new ApiCall('https://api.apilayer.com/fixer', "DEJeBDkqUPn3hECpmCjLY37ap86N0Xw1")
+const apicall = new ApiCall(import.meta.env.VITE_BATH_URL)
+const bank_apiCall = new ApiCall(import.meta.env.VITE_FIXER_URL, import.meta.env.VITE_API_KEY)
 
 const h1 = document.querySelector('.user_card')
 const close = document.querySelector('.close_info')
@@ -22,7 +22,7 @@ const refId = JSON.parse(localStorage.getItem('user'))
 
 const wallet = await apicall.getData('/wallets?userId=' + refId.id)
 const res = await apicall.getData('/wallets/' + id)
-// const currency = await bank_apiCall.getData('/symbols')
+const currency = await bank_apiCall.getData('/symbols')
 
 
 convert.onclick = async () => {
@@ -41,15 +41,15 @@ function Select_Currency(item){
     return option
 }
 reload(wallet,history_currency,Select_Currency)
-// for (const select of select_currency) {
-//     select.innerHTML = ''
+for (const select of select_currency) {
+    select.innerHTML = ''
 
-//     for (let key in currency.symbols) {
-//         select.innerHTML += `
-//             <option value="${key}">${key}: ${currency.symbols[key]}</option>
-//         `;
-//     }
-// }
+    for (let key in currency.symbols) {
+        select.innerHTML += `
+            <option value="${key}">${key}: ${currency.symbols[key]}</option>
+        `;
+    }
+}
 name_card.innerHTML = res["wallet-name"]
 currently.innerHTML = res.currency
 total.innerHTML = Number(res.balance).toLocaleString('us') + ' | ' + res.currency
@@ -64,15 +64,17 @@ elems.forEach(item => {
         item.classList.add('active')
     }
 })
+const transaction = await apicall.getData('/transactions?walletId=' + id)
+console.log(transaction);
 
 const ctx = document.getElementById('myChart').getContext('2d');
     const myChart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            labels: transaction.map(item => item.createdAt),
             datasets: [{
                 label: 'My First Dataset',
-                data: [65, 59, 80, 81, 56, 55, 40],
+                data: transaction.map(item => item.total),
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1

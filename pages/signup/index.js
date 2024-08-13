@@ -2,7 +2,7 @@ import { ApiCall } from "../../lib/http.request";
 
 const form = document.forms.namedItem('registration-form')
 
-const apiCall = new ApiCall("http://localhost:8080")
+const apiCall = new ApiCall(import.meta.env.VITE_BATH_URL)
 
 form.onsubmit = async (e) => {
     e.preventDefault();

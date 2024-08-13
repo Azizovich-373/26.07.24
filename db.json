@@ -67,7 +67,7 @@
       "updatedAt": "2024-08-03T09:57:18.076Z",
       "userId": "11a4",
       "wallet-name": "HUMO",
-      "balance": "100000",
+      "balance": 99850,
       "currency": "UZS"
     },
     {
@@ -76,29 +76,11 @@
       "updatedAt": "2024-08-06T08:06:29.793Z",
       "userId": "11a4",
       "wallet-name": "Shoxruh lox",
-      "balance": "14998",
+      "balance": 14993,
       "currency": "BTC"
     }
   ],
   "transactions": [
-    {
-      "id": "46f74fb9-4dd6-47f4-aae4-4a8f2e809044",
-      "createdAt": "2024-08-03T05:32:02.875Z",
-      "updatedAt": "2024-08-03T05:32:02.875Z",
-      "userId": "11a4",
-      "wallet": "Business",
-      "total": "1000",
-      "cat": "business"
-    },
-    {
-      "id": "81fdddf6-ba68-4907-b45c-053b98161506",
-      "createdAt": "2024-08-03T06:03:06.841Z",
-      "updatedAt": "2024-08-03T06:03:06.841Z",
-      "userId": "fcb9",
-      "wallet": "DalerAka",
-      "total": "1000",
-      "cat": "business"
-    },
     {
       "id": "d970ea21-3678-4918-bc04-6df3c98ddcb4",
       "createdAt": "2024-08-06T08:57:16.174Z",
@@ -131,6 +113,57 @@
         "wallet-name": "Daler teacher",
         "balance": "100000",
         "currency": "SUM"
+      }
+    },
+    {
+      "id": "ee034c33-5912-4fd6-a773-585bce92a582",
+      "createdAt": "2024-08-10T08:42:45.601Z",
+      "updatedAt": "2024-08-10T08:42:45.601Z",
+      "userId": "11a4",
+      "walletId": "0f071e0d-d6c4-45bd-bf38-7e48a8c07236",
+      "total": "5",
+      "cat": "crypro buy",
+      "wallet": {
+        "createdAt": "2024-08-06T08:06:29.793Z",
+        "updatedAt": "2024-08-06T08:06:29.793Z",
+        "userId": "11a4",
+        "wallet-name": "Shoxruh lox",
+        "balance": "14998",
+        "currency": "BTC"
+      }
+    },
+    {
+      "id": "39f9ac46-bffe-4121-b851-77baa0c27e4a",
+      "createdAt": "2024-08-10T09:56:46.240Z",
+      "updatedAt": "2024-08-10T09:56:46.240Z",
+      "userId": "11a4",
+      "walletId": "c2e8b374-f15d-4b4d-b017-3382645e5300",
+      "total": "100",
+      "cat": "crypro buy",
+      "wallet": {
+        "createdAt": "2024-08-03T09:57:18.076Z",
+        "updatedAt": "2024-08-03T09:57:18.076Z",
+        "userId": "11a4",
+        "wallet-name": "HUMO",
+        "balance": "100000",
+        "currency": "UZS"
+      }
+    },
+    {
+      "id": "b49e9ea6-05a3-4108-b473-768fe498a15c",
+      "createdAt": "2024-08-13T05:02:21.820Z",
+      "updatedAt": "2024-08-13T05:02:21.820Z",
+      "userId": "11a4",
+      "walletId": "c2e8b374-f15d-4b4d-b017-3382645e5300",
+      "total": "50",
+      "cat": "samir",
+      "wallet": {
+        "createdAt": "2024-08-03T09:57:18.076Z",
+        "updatedAt": "2024-08-03T09:57:18.076Z",
+        "userId": "11a4",
+        "wallet-name": "HUMO",
+        "balance": 99900,
+        "currency": "UZS"
       }
     }
   ]

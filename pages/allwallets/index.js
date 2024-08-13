@@ -4,7 +4,7 @@ import { ApiCall } from "../../lib/http.request";
 import { reload } from "../../lib/utils";
 
 const refId = JSON.parse(localStorage.getItem('user'))
-const apiCall = new ApiCall("http://localhost:8080")
+const apiCall = new ApiCall(import.meta.env.VITE_BATH_URL)
 const wallet = await apiCall.getData('/wallets?userId=' + refId.id)
 const add_wallet = document.querySelector('#add_wallet')
 const body = document.body

@@ -5,7 +5,7 @@ import { Card } from "./components/Card";
 import { ApiCall } from "./lib/http.request";
 
 const refId = JSON.parse(localStorage.getItem('user'))
-const apiCall = new ApiCall("http://localhost:8080")
+const apiCall = new ApiCall(import.meta.env.VITE_BATH_URL)
 const wallet = await apiCall.getData('/wallets?userId=' + refId.id)
 const transaction = await apiCall.getData('/transactions?userId=' + refId.id)
 const local = JSON.parse(localStorage.getItem('user'))
