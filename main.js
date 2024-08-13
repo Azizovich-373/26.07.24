@@ -5,6 +5,10 @@ import { Card } from "./components/Card";
 import { ApiCall } from "./lib/http.request";
 
 const refId = JSON.parse(localStorage.getItem('user'))
+if (refId === null) {
+    location.assign('/pages/signin/')
+    return
+}
 const apiCall = new ApiCall(import.meta.env.VITE_BATH_URL)
 const local = JSON.parse(localStorage.getItem('user'))
 const user_name = document.querySelector('#user_name')
