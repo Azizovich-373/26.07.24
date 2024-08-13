@@ -20,9 +20,27 @@ const history_currency = document.querySelector('.history_currency')
 const id = location.search.split('=').at(-1)
 const refId = JSON.parse(localStorage.getItem('user'))
 
-const wallet = await apicall.getData('/wallets?userId=' + refId.id)
-const res = await apicall.getData('/wallets/' + id)
-const currency = await bank_apiCall.getData('/symbols')
+
+apicall.getData('/wallets/' + id)
+    .then(res => {
+        name_card.innerHTML = res["wallet-name"]
+        currently.innerHTML = res.currency
+        total.innerHTML = Number(res.balance).toLocaleString('us') + ' | ' + res.currency
+        h1.innerHTML = `Dashboard: ${res["wallet-name"]}`
+    })
+
+bank_apiCall.getData('/symbols')
+    .then(currency => {
+        for (const select of select_currency) {
+            select.innerHTML = ''
+        
+            for (let key in currency.symbols) {
+                select.innerHTML += `
+                    <option value="${key}">${key}: ${currency.symbols[key]}</option>
+                `;
+            }
+        }
+    })
 
 
 convert.onclick = async () => {
@@ -34,26 +52,15 @@ convert.onclick = async () => {
     const convertation = await bank_apiCall.getData('/convert', params)
     total_conv.innerHTML = `TOTAL: ${convertation.result} ${conv_to.value}`
 }
-reload(wallet, wallets_place, Wallet)
+
 function Select_Currency(item){
     const option = new Option(item.currency, item.id)
 
     return option
 }
-reload(wallet,history_currency,Select_Currency)
-for (const select of select_currency) {
-    select.innerHTML = ''
 
-    for (let key in currency.symbols) {
-        select.innerHTML += `
-            <option value="${key}">${key}: ${currency.symbols[key]}</option>
-        `;
-    }
-}
-name_card.innerHTML = res["wallet-name"]
-currently.innerHTML = res.currency
-total.innerHTML = Number(res.balance).toLocaleString('us') + ' | ' + res.currency
-h1.innerHTML = `Dashboard: ${res["wallet-name"]}`
+
+
 close.onclick = () => {
     location.assign('/')
 }
@@ -64,27 +71,34 @@ elems.forEach(item => {
         item.classList.add('active')
     }
 })
-const transaction = await apicall.getData('/transactions?walletId=' + id)
-console.log(transaction);
+apicall.getData('/wallets?userId=' + refId.id)
+    .then(wallet => {
+        reload(wallet, wallets_place, Wallet)
+        reload(wallet,history_currency,Select_Currency)
+    })
+apicall.getData('/transactions?walletId=' + id)
+    .then(transaction => {
+        console.log(transaction);
 
-const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: transaction.map(item => item.createdAt),
-            datasets: [{
-                label: 'My First Dataset',
-                data: transaction.map(item => item.total),
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: transaction.map(item => item.createdAt),
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: transaction.map(item => item.total),
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
-    });
+        });
+    })

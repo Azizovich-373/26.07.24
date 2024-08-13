@@ -6,14 +6,17 @@ const total_inp = document.querySelector('#total')
 const select_wallet = document.querySelector('#wallet')
 const apiCall = new ApiCall(import.meta.env.VITE_BATH_URL)
 const refId = JSON.parse(localStorage.getItem('user'))
-const res = await apiCall.getData('/wallets?userId=' + refId.id)
-
 function SelectWallet(item){
     const option = new Option(item['wallet-name'], item.id)
 
     return option
 }
-reload(res,select_wallet,SelectWallet)
+apiCall.getData('/wallets?userId=' + refId.id)
+    .then(res => {
+        reload(res,select_wallet,SelectWallet)
+    })
+
+
 
 form.onsubmit = async (e) => {
     e.preventDefault();

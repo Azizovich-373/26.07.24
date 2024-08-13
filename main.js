@@ -6,8 +6,6 @@ import { ApiCall } from "./lib/http.request";
 
 const refId = JSON.parse(localStorage.getItem('user'))
 const apiCall = new ApiCall(import.meta.env.VITE_BATH_URL)
-const wallet = await apiCall.getData('/wallets?userId=' + refId.id)
-const transaction = await apiCall.getData('/transactions?userId=' + refId.id)
 const local = JSON.parse(localStorage.getItem('user'))
 const user_name = document.querySelector('#user_name')
 const user_email = document.querySelector('#user_email')
@@ -17,5 +15,12 @@ const card_place = document.querySelector('.wallets')
 user_email.innerHTML = local.email
 user_name.innerHTML = local["last-name"] + ' ' + local["first-name"]
 reload([{}],body, Header)
-reload(transaction,tbody, Transaction)
-reload(wallet,card_place, Card)
+
+apiCall.getData('/wallets?userId=' + refId.id)
+    .then(wallet => {
+        reload(wallet,card_place, Card) 
+    })
+apiCall.getData('/transactions?userId=' + refId.id)
+    .then(transaction => {
+        reload(transaction,tbody, Transaction)   
+    })

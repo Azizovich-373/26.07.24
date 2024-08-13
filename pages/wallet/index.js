@@ -6,15 +6,18 @@ const apiCall = new ApiCall(import.meta.env.VITE_BATH_URL)
 const bank_apiCall = new ApiCall(import.meta.env.VITE_FIXER_URL, import.meta.env.VITE_API_KEY)
 
 const select = document.querySelector('select')
-const res = await bank_apiCall.getData('/symbols')
+bank_apiCall.getData('/symbols')
+    .then(res => {
+        select.innerHTML = ""
+        for(let key in res.symbols) {
 
-select.innerHTML = ""
-for(let key in res.symbols) {
+            select.innerHTML += `
+                <option value="${key}"  >${key}: ${res.symbols[key]}</option>
+            `
+        }
+    })
 
-    select.innerHTML += `
-        <option value="${key}"  >${key}: ${res.symbols[key]}</option>
-    `
-}
+
 
 form.onsubmit = async (e) => {
     e.preventDefault();
